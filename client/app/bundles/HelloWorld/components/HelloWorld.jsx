@@ -27,7 +27,6 @@ export default class HelloWorld extends React.Component {
   }
 
   componentDidMount() {
-    this.stuff = [];
     this.getTheProjects();
   }
 
@@ -64,7 +63,7 @@ export default class HelloWorld extends React.Component {
     colors.push(res.data);
     this.setState({colors: colors})
     this.color.value = '';
-    this.stuff = [];
+
     });
   }
 
@@ -82,9 +81,8 @@ export default class HelloWorld extends React.Component {
   // }
 
   renderColors() {
-
     const colors = this.state.colors;
-    if (colors) {
+    if (colors && this.state.displaying != '') {
       return (colors.map(key => <div
         className='color'
         style={{backgroundColor: key.code, color: key.code}}
@@ -95,13 +93,15 @@ export default class HelloWorld extends React.Component {
           spellCheck="false"
           value={key.code}
           ref={(input) => {
-            this.stuff.push(input);
+            const inputs = this.state.inputs;
+            inputs.push(input);
           }}
           onFocus={() => {
-            console.log(this.stuff);
-            for (let i = 0; i < this.stuff.length; i++) {
-              if (this.stuff[i].value === key.code) {
-                this.stuff[i].select();
+            const inputs = this.state.inputs;
+            console.log(inputs);
+            for (let i = 0; i < inputs.length; i++) {
+              if (inputs[i].value === key.code) {
+                inputs[i].select();
                 document.execCommand("copy");
               }
             }
@@ -125,9 +125,7 @@ export default class HelloWorld extends React.Component {
 
   backFunction() {
     this.setState({displaying: ''});
-    this.stuff = [];
-  }
-
+}
 
 
   renderProjects() {
