@@ -1,5 +1,8 @@
 class HelloWorldController < ApplicationController
+
+  before_action :require_user, only: [:index, :show]
+
   def index
-    @hello_world_props = { name: "Stranger" }
+    @user_props = { user: @current_user}
   end
 end

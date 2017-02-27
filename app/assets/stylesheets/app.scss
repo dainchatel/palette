@@ -1,0 +1,43 @@
+
+
+.color-container {
+  border: 5px solid black;
+  width: 100%;
+  height: 10vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.color {
+  width: 6vw;
+  height: 8vh;
+  color: white;
+  overflow: hidden;
+  outline: none;
+  border: none;
+  z-index: 1;
+}
+
+.div-input {
+  background-color: transparent;
+  color: transparent;
+  width: 100%;
+  height: 8vh;
+  outline: none;
+  border: none;
+  z-index: 100;
+  cursor: default;
+}
+
+.div-input::selection {
+  background-color: transparent;
+}
+
+.project {
+  cursor: default;
+}
+
+input:target {
+  background-color: transparent;
+}
