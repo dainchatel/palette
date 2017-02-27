@@ -43,6 +43,16 @@ export default class HelloWorld extends React.Component {
     });
   }
 
+  pasteColor(e) {
+    e.preventDefault();
+    this.color.value = 'placeholder';
+    this.color.focus();
+    this.color.select();
+    document.execCommand("paste");
+    // this.color.value = document.queryCommandEnabled('paste')
+    // this.color.value = document.queryCommandSupported('paste')
+  }
+
   addColor(e) {
     e.preventDefault();
     const csrfToken = ReactOnRails.authenticityToken();
@@ -67,26 +77,27 @@ export default class HelloWorld extends React.Component {
     });
   }
 
-  // copyToClipboard(e, key) {
-  //   e.preventDefault();
-  //   // console.log(key)
-  //   // console.log(key)
-  //   // this.setState({copying: key})
-  //   // this.copying.focus();
-  //   // this.copying.select();
-  // }
-
-  // copyNow() {
-  //   console.log(this.stuff.value)
-  // }
+  deleteColor(id, code) {
+    const csrfToken = ReactOnRails.authenticityToken();
+    const headers = ReactOnRails.authenticityHeaders({});
+    axios({
+      method: 'delete',
+      url: '/api/colors/'+id,
+      headers: headers
+    }).then((res) => {
+    let colors = this.state.colors;
+    colors.push(res.data);
+    this.setState({colors: colors})
+    });
+  }
 
   renderColors() {
+    console.log('render colors ran')
     const colors = this.state.colors;
-    if (colors && this.state.displaying != '') {
-      return (colors.map(key => <div
+    if (colors && this.state.displaying != "") {
+      return (colors.map(key => <div key={key.id} className='color-big'><div
         className='color'
         style={{backgroundColor: key.code, color: key.code}}
-        key={key.id}
         value={key.code}
         ><input
           className='div-input'
@@ -95,18 +106,19 @@ export default class HelloWorld extends React.Component {
           ref={(input) => {
             const inputs = this.state.inputs;
             inputs.push(input);
+
           }}
           onFocus={() => {
             const inputs = this.state.inputs;
             console.log(inputs);
             for (let i = 0; i < inputs.length; i++) {
-              if (inputs[i].value === key.code) {
+              if (inputs[i] != null && inputs[i].value === key.code) {
                 inputs[i].select();
                 document.execCommand("copy");
               }
             }
           }}
-          /></div>))
+          /></div><p onClick={() => {this.deleteColor(key.id, key.code)}} className='color-p'>x</p></div>))
     }
   }
 
@@ -124,7 +136,7 @@ export default class HelloWorld extends React.Component {
   }
 
   backFunction() {
-    this.setState({displaying: ''});
+    this.setState({displaying: '', inputs: []});
 }
 
 
@@ -190,9 +202,11 @@ export default class HelloWorld extends React.Component {
               this.color = input;
               }
              }
+             onClick={(e) => {this.pasteColor(e)}}
              type='text'/>
             <input type='submit' value='+'/>
           </form>
+          <button onClick={(e) => {this.pasteColor(e)}}>paste</button>
           <div className='project' onClick={this.backFunction}>back</div>
         </div>
         );
