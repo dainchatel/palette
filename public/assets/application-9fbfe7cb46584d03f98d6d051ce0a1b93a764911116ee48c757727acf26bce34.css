@@ -1,0 +1,226 @@
+/* line 1, /Users/Dain/generalassembly/projects/paletterails/palette/app/assets/stylesheets/app.scss */
+body {
+  font-family: 'Raleway';
+  color: rgba(60, 60, 60, 0.5);
+}
+
+/* line 6, /Users/Dain/generalassembly/projects/paletterails/palette/app/assets/stylesheets/app.scss */
+h1 {
+  text-align: center;
+}
+
+/* line 9, /Users/Dain/generalassembly/projects/paletterails/palette/app/assets/stylesheets/app.scss */
+.color-container {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  flex-wrap: wrap;
+  margin-right: 2rem;
+}
+
+/* line 19, /Users/Dain/generalassembly/projects/paletterails/palette/app/assets/stylesheets/app.scss */
+.color-big {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  margin-right: 3rem;
+}
+
+/* line 27, /Users/Dain/generalassembly/projects/paletterails/palette/app/assets/stylesheets/app.scss */
+.color-p {
+  margin: 1vh auto;
+  cursor: default;
+  font-size: .65rem;
+}
+
+/* line 33, /Users/Dain/generalassembly/projects/paletterails/palette/app/assets/stylesheets/app.scss */
+.project-p {
+  cursor: default;
+}
+
+/* line 37, /Users/Dain/generalassembly/projects/paletterails/palette/app/assets/stylesheets/app.scss */
+.project-holder {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 25vw;
+}
+
+/* line 46, /Users/Dain/generalassembly/projects/paletterails/palette/app/assets/stylesheets/app.scss */
+.color {
+  width: 9vw;
+  height: 8vh;
+  color: white;
+  overflow: hidden;
+  outline: none;
+  border: none;
+  z-index: 1;
+  border-radius: 5%;
+  margin: 0 -2vw;
+}
+
+/* line 58, /Users/Dain/generalassembly/projects/paletterails/palette/app/assets/stylesheets/app.scss */
+.div-input {
+  background-color: transparent;
+  color: transparent;
+  width: 100%;
+  height: 8vh;
+  outline: none;
+  border: none;
+  z-index: 100;
+  cursor: default;
+}
+
+/* line 69, /Users/Dain/generalassembly/projects/paletterails/palette/app/assets/stylesheets/app.scss */
+.div-input::selection {
+  background-color: transparent;
+}
+
+/* line 73, /Users/Dain/generalassembly/projects/paletterails/palette/app/assets/stylesheets/app.scss */
+.project {
+  cursor: default;
+}
+
+/* line 77, /Users/Dain/generalassembly/projects/paletterails/palette/app/assets/stylesheets/app.scss */
+input:target {
+  background-color: transparent;
+}
+
+/* line 81, /Users/Dain/generalassembly/projects/paletterails/palette/app/assets/stylesheets/app.scss */
+ul {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+/* line 88, /Users/Dain/generalassembly/projects/paletterails/palette/app/assets/stylesheets/app.scss */
+.left-li {
+  margin-left: -2rem;
+}
+
+/* line 92, /Users/Dain/generalassembly/projects/paletterails/palette/app/assets/stylesheets/app.scss */
+.project-button {
+  background-color: transparent;
+  font-size: 3rem;
+  border: none;
+  color: rgba(60, 60, 60, 0.3);
+}
+
+/* line 99, /Users/Dain/generalassembly/projects/paletterails/palette/app/assets/stylesheets/app.scss */
+.project-input {
+  background-color: transparent;
+  font-size: 2rem;
+  border: none;
+  border-bottom: 0.5px solid rgba(60, 60, 60, 0.1);
+}
+
+/* line 106, /Users/Dain/generalassembly/projects/paletterails/palette/app/assets/stylesheets/app.scss */
+.add-project-form {
+  text-align: center;
+  margin-bottom: 5vh;
+}
+
+/* line 111, /Users/Dain/generalassembly/projects/paletterails/palette/app/assets/stylesheets/app.scss */
+.big-projects {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* line 120, /Users/Dain/generalassembly/projects/paletterails/palette/app/assets/stylesheets/app.scss */
+.login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* line 127, /Users/Dain/generalassembly/projects/paletterails/palette/app/assets/stylesheets/app.scss */
+.btn-submit {
+  background-color: transparent;
+  border: none;
+  text-transform: uppercase;
+  font-family: 'Raleway';
+  margin-top: 2vh;
+}
+
+/* line 135, /Users/Dain/generalassembly/projects/paletterails/palette/app/assets/stylesheets/app.scss */
+.login-input {
+  border: none;
+  border-bottom: 0.5px solid rgba(60, 60, 60, 0.1);
+  font-family: 'Raleway';
+  color: gray;
+  outline: none;
+  margin: 2vh auto;
+}
+
+/* line 144, /Users/Dain/generalassembly/projects/paletterails/palette/app/assets/stylesheets/app.scss */
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+/* line 149, /Users/Dain/generalassembly/projects/paletterails/palette/app/assets/stylesheets/app.scss */
+.logout {
+  text-decoration: none;
+  color: rgba(60, 60, 60, 0.3);
+}
+
+/* line 154, /Users/Dain/generalassembly/projects/paletterails/palette/app/assets/stylesheets/app.scss */
+.logout-extra {
+  text-decoration: none;
+  color: rgba(60, 60, 60, 0.3);
+  margin-right: 1.5vh;
+}
+
+/* line 161, /Users/Dain/generalassembly/projects/paletterails/palette/app/assets/stylesheets/app.scss */
+.project-name {
+  text-align: center;
+  margin-bottom: 2vh;
+}
+
+/* line 166, /Users/Dain/generalassembly/projects/paletterails/palette/app/assets/stylesheets/app.scss */
+.color-adder-and-back {
+  display: flex;
+  flex-direction: column;
+  height: 20vh;
+  justify-content: space-around;
+  align-items: center;
+}
+
+/* line 174, /Users/Dain/generalassembly/projects/paletterails/palette/app/assets/stylesheets/app.scss */
+.color-adder-input {
+  height: 6vh;
+  width: 40vw;
+  border: 0.5px solid rgba(60, 60, 60, 0.1);
+  font-size: 4.5vh;
+  color: gray;
+}
+
+/* line 182, /Users/Dain/generalassembly/projects/paletterails/palette/app/assets/stylesheets/app.scss */
+input {
+  outline: none;
+  color: rgba(60, 60, 60, 0.2);
+}
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+
+
+ */
+
+app.scss
