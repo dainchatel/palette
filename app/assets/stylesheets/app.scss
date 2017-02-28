@@ -7,12 +7,13 @@ h1 {
   text-align: center;
 }
 .color-container {
-  width: 90vw;
+  width: 100vw;
   display: flex;
   justify-content: space-around;
   align-items: center;
   padding: 1rem;
   flex-wrap: wrap;
+  margin-right: 2rem;
 }
 
 .color-big {
@@ -20,6 +21,7 @@ h1 {
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+  margin-right: 3rem;
 }
 
 .color-p {
@@ -133,6 +135,7 @@ ul {
   border: none;
   border-bottom: .5px solid rgba(60,60,60,.1);
   font-family: 'Raleway';
+  color: gray;
   outline: none;
   margin: 2vh auto;
 }
