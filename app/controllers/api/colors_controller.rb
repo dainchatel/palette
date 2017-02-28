@@ -12,6 +12,12 @@ module Api
       render json: @color.to_json
     end
 
+    def destroy
+      Color.destroy(params[:id])
+
+
+    end
+
     def show
       color = Color.where(project_id: params[:id])
       render json: color.to_json

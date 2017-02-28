@@ -54,7 +54,9 @@ export default class HelloWorld extends React.Component {
   }
 
   addColor(e) {
-    e.preventDefault();
+    if (e) {
+      e.preventDefault();
+    }
     const csrfToken = ReactOnRails.authenticityToken();
     const headers = ReactOnRails.authenticityHeaders({});
     const newColor = {
@@ -85,14 +87,23 @@ export default class HelloWorld extends React.Component {
       url: '/api/colors/'+id,
       headers: headers
     }).then((res) => {
-    let colors = this.state.colors;
-    colors.push(res.data);
-    this.setState({colors: colors})
+    this.clickHandler(this.state.displaying.name, this.state.displaying.id)
+    });
+  }
+
+  deleteProject(id) {
+    const csrfToken = ReactOnRails.authenticityToken();
+    const headers = ReactOnRails.authenticityHeaders({});
+    axios({
+      method: 'delete',
+      url: '/api/projects/'+id,
+      headers: headers
+    }).then((res) => {
+    this.getTheProjects();
     });
   }
 
   renderColors() {
-    console.log('render colors ran')
     const colors = this.state.colors;
     if (colors && this.state.displaying != "") {
       return (colors.map(key => <div key={key.id} className='color-big'><div
@@ -143,7 +154,7 @@ export default class HelloWorld extends React.Component {
   renderProjects() {
     const projects = this.state.projects;
     if (projects) {
-      return (projects.map(key => <div onClick={() => { this.clickHandler(key.name, key.id)}} className='project' key={key.id}>{key.name}</div>))
+      return (projects.map(key => <div key={key.id} className='project-holder'><div onClick={() => { this.clickHandler(key.name, key.id)}} className='project'>{key.name}</div><div className='project-p' onClick={() => {this.deleteProject(key.id)}}>x</div></div>))
     }
   }
 
@@ -170,20 +181,25 @@ export default class HelloWorld extends React.Component {
     });
   }
 
+  colorFunction(color) {
+    console.log(color)
+  }
+
   projectList() {
     if (this.state.displaying === '') {
       return (
       <div>
-        <form onSubmit={(e) => {this.addProject(e)}}>
+        <form className='add-project-form' onSubmit={(e) => {this.addProject(e)}}>
           <input
+            className='project-input'
             ref={(input) => {
               this.project = input;
               }
             }
             type='text'/>
-          <input type='submit' value='+'/>
+          <input type='submit' className='project-button' value='+'/>
         </form>
-        <div>
+        <div className='big-projects'>
           {this.renderProjects()}
         </div>
       </div>
@@ -192,22 +208,23 @@ export default class HelloWorld extends React.Component {
     else {
       return (
         <div>
-        <p>{this.state.displaying.name}</p>
+        <div className='project-name'>{this.state.displaying.name}</div>
         <div className='color-container'>
           {this.renderColors()}
         </div>
+        <div className='color-adder-and-back'>
           <form onSubmit={(e) => {this.addColor(e)}}>
             <input
+             className='color-adder-input'
+             onPaste={() => {setTimeout(() => {this.addColor();}, 4);}}
              ref={(input) => {
               this.color = input;
               }
              }
-             onClick={(e) => {this.pasteColor(e)}}
              type='text'/>
-            <input type='submit' value='+'/>
           </form>
-          <button onClick={(e) => {this.pasteColor(e)}}>paste</button>
           <div className='project' onClick={this.backFunction}>back</div>
+        </div>
         </div>
         );
     }
@@ -222,5 +239,7 @@ export default class HelloWorld extends React.Component {
     );
   }
 }
+
+
 
 

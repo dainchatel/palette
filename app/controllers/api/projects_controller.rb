@@ -17,6 +17,10 @@ module Api
       render json: projects.to_json
     end
 
+    def destroy
+      Project.destroy(params[:id])
+    end
+
     def project_params
       params.require(:project).permit(
         :name, :user_id

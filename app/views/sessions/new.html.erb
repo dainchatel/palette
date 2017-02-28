@@ -5,10 +5,13 @@
       <h1>Log in</h1>
 
     <%= form_for(:session, url: login_path) do |f| %>
-  <%= f.email_field :email, :placeholder => "Email" %>
-  <%= f.password_field :password, :placeholder => "Password" %>
+    <div class='form'>
+  <%= f.email_field :email, :placeholder => "email", class: 'login-input' %>
+  <%= f.password_field :password, :placeholder => "password", class: 'login-input' %>
   <%= f.submit "Log in", class: "btn-submit" %>
+  </div>
 <% end %>
+
 
     </div>
   </div>
