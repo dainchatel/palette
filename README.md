@@ -1,68 +1,67 @@
-# Alien Doctor
+# Palette
 
 
-![Alien Doctor](assets/snap.png)
+![Palette](assets/snap.png)
 
 ## Technologies Used
-- HTML
-- CSS
-- Vanilla JavaScript
-- jQuery
+- Ruby on Rails
+- React
+- PostgreSQL
+- Axios
+
+## Getting Started
 
 ## Code Example
 
 ```javascript
 
-//array of side effect functions
+  renderColors() {
+    const colors = this.state.colors;
+    if (colors && this.state.displaying != "") {
+      return (colors.map(key => <div key={key.id} className='color-big'><div
+        className='color'
+        style={{backgroundColor: key.code, color: key.code}}
+        value={key.code}
+        ><input
+          className='div-input'
+          spellCheck="false"
+          value={key.code}
+          ref={(input) => {
+            const inputs = this.state.inputs;
+            inputs.push(input);
 
-const counterAttacks = [chance1, chance2, chance3, chance4, chance5];
-
-//function that chooses a random function from the array every time it is triggered ( after each user turn)
-
-const counterChance = function counterFunction() {
-  setTimeout(function() {
-  counterAttacks[Math.floor(Math.random()*5)]();
-}, 4000);
-}
+          }}
+          onFocus={() => {
+            const inputs = this.state.inputs;
+            console.log(inputs);
+            for (let i = 0; i < inputs.length; i++) {
+              if (inputs[i] != null && inputs[i].value === key.code) {
+                inputs[i].select();
+                document.execCommand("copy");
+              }
+            }
+          }}
+          /></div><p onClick={() => {this.deleteColor(key.id, key.code)}} className='color-p'>x</p></div>))
+    }
+  }
 
 ```
 
 ## Build Strategy
 
-I created a class alien, which should make it easier to expand the game into multiple levels/locations, and then used DOM manipulation to recreate the simple turn-based RPG methodology from early Pokemon games. After every "treatment" function a user tries a "side-effect" function is triggered. The health level is changed with each type of function, and it's linked to a smooth-sliding health bar and CSS animations that illustrate the alien's response. 
+
 
 ## Contributing 
 
-My own damn self (you know who you are). Actually that's just from an Eazy-E record. Vince helped me a lot!
+Dain Chatel
 
 ## Complications/Future Improvements
 
-I'd like to migrate the "treatments" and "side-effects" to class objects and create more aliens and levels. 
+
 
 ## Author
 
 Dain Chatel 
-# README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...

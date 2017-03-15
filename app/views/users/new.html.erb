@@ -2,15 +2,15 @@
   <div class="container">
     <div class="form">
 
-    <h1>Sign up</h1>
+    <h1>sign up</h1>
 
  <%= form_for @user do |f| %>
  <div class='form'>
-      <%= f.text_field :first_name, :placeholder => "First name", class: 'login-input' %>
-      <%= f.text_field :last_name, :placeholder => "Last name", class: 'login-input' %>
-      <%= f.email_field :email, :placeholder => "Email", class: 'login-input' %>
-      <%= f.password_field :password, :placeholder => "Password", class: 'login-input' %>
-      <%= f.submit "Create an account", class: "btn-submit" %>
+      <%= f.text_field :first_name, :placeholder => "first name", class: 'login-input' %>
+      <%= f.text_field :last_name, :placeholder => "last name", class: 'login-input' %>
+      <%= f.email_field :email, :placeholder => "email", class: 'login-input' %>
+      <%= f.password_field :password, :placeholder => "password", class: 'login-input' %>
+      <%= f.submit "create account", class: "btn-submit" %>
    </div>
     <% end %>
 

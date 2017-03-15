@@ -108,6 +108,7 @@ export default class HelloWorld extends React.Component {
     if (colors && this.state.displaying != "") {
       return (colors.map(key => <div key={key.id} className='color-big'><div
         className='color'
+        id={this.state.spin === key.id ? 'spinning' : ''}
         style={{backgroundColor: key.code, color: key.code}}
         value={key.code}
         ><input
@@ -121,6 +122,7 @@ export default class HelloWorld extends React.Component {
           }}
           onFocus={() => {
             const inputs = this.state.inputs;
+            this.setState({spin: key.id});
             console.log(inputs);
             for (let i = 0; i < inputs.length; i++) {
               if (inputs[i] != null && inputs[i].value === key.code) {
@@ -197,7 +199,7 @@ export default class HelloWorld extends React.Component {
               }
             }
             type='text'/>
-          <input type='submit' className='project-button' value='+'/>
+
         </form>
         <div className='big-projects'>
           {this.renderProjects()}
