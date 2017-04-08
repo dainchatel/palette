@@ -1,7 +1,7 @@
 # Palette
 
 
-![Palette](assets/snap.png)
+![Palette](/palscreen.png)
 
 ## Technologies Used
 - Ruby on Rails
