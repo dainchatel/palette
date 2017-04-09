@@ -11,7 +11,7 @@
 
 ## Getting Started
 
-Palette is a developer tool for keeping track of the RGB, Hex and HSL codes in your CSS. Sign up, log in, and use the input to create a new project. Inside that project, use the input to add a color you use in that project's CSS. You can paste in RGB, Hex, HSL, or semantic ('silver') color codes -- as long as you add the code exactly as you would in your CSS (for instance, include the 'rgba' prefix if using an rgba value). The color automatically loads on paste, but if you enter the code by hand, just upload it with return. A swatch of that color will then appear on your project. If you need to use that color again, just click the swatch, and it will spin to indicate that the color code you entered previously has been copied to your clipboard. If it does not spin, then that color code is already on your clipboard.  
+Palette is a developer tool for keeping track of the RGB, Hex and HSL codes in your CSS. Sign up, log in, and use the input to create a new project. Inside that project, use the input to add a color you use in that project's CSS. You can paste in RGB, Hex, HSL, or semantic ('silver') color codes -- as long as you add the code exactly as you would in your CSS (for instance, include the 'rgba' prefix if using an rgba value). The color automatically loads on paste, but if you enter the code by hand, just upload it with return. A swatch of that color will then appear on your project. If you need to use that color again, just click the swatch, and it will spin to indicate that the color code you entered previously has been copied to your clipboard. 
 
 ## Code Example
 
